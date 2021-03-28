@@ -18,7 +18,7 @@ class App extends React.Component {
       {
         id: 2,
         name: "Interstellar",
-        rating: 6.8,
+        rating: 8.2,
         overview:
           "This is a wider card with supporting text below as a natural lead-in to additional content.",
         imageURL:
@@ -37,6 +37,18 @@ class App extends React.Component {
     ],
   };
 
+
+  deleteMovie = (movie) => {
+    const newMovieList = this.state.movies.filter(
+        m=>m.id !== movie.id
+    );
+
+    this.setState({
+        movies:newMovieList
+    })
+
+  }
+
   render() {
     return (
       <div className="container">
@@ -46,7 +58,7 @@ class App extends React.Component {
           </div>
         </div>
 
-        <MovieList movies={this.state.movies}/>
+        <MovieList movies={this.state.movies} deleteMovieProp={this.deleteMovie}/>
       </div>
     );
   }
