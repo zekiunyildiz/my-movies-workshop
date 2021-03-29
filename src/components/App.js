@@ -1,6 +1,6 @@
 import React from "react";
-
 import MovieList from "./MovieList";
+import SearchBar from './SearchBar'
 
 class App extends React.Component {
   state = {
@@ -43,9 +43,13 @@ class App extends React.Component {
         m=>m.id !== movie.id
     );
 
-    this.setState({
-        movies:newMovieList
-    })
+    // this.setState({
+    //     movies:newMovieList
+    // })
+
+    this.setState(state => ({
+      movies: newMovieList
+    }))
 
   }
 
@@ -54,7 +58,7 @@ class App extends React.Component {
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
-            
+            <SearchBar/>
           </div>
         </div>
 
